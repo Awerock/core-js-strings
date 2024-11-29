@@ -205,7 +205,7 @@ function sumOfCodes(str) {
   if (typeof str === 'undefined' || str === null) {
     return 0;
   }
-  return null; // добавлен возврат значения
+  return null;
 }
 
 /**
@@ -268,8 +268,13 @@ function formatTime(minutes, seconds) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let buffer = '';
+  const { length } = str;
+  for (let i = 0; i < length; i += 1) {
+    buffer += str[length - 1 - i];
+  }
+  return buffer;
 }
 
 /**
@@ -283,8 +288,9 @@ function reverseString(/* str */) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  const sorted = str.split('').sort().join('');
+  return sorted;
 }
 
 /**
@@ -299,8 +305,8 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
 
 /**
@@ -317,8 +323,11 @@ function containsSubstring(/* str, substring */) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const vowels = 'aeiouyAEIOUY';
+  return str.split('').reduce((count, char) => {
+    return vowels.includes(char) ? count + 1 : count;
+  }, 0);
 }
 
 /**
@@ -334,8 +343,10 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const normalizedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const reversed = normalizedStr.split('').reverse().join('');
+  return normalizedStr === reversed;
 }
 
 /**
@@ -351,7 +362,7 @@ function isPalindrome(/* str */) {
  *   findLongestWord('No words here') => 'words'
  */
 function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+
 }
 
 /**
