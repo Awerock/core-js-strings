@@ -384,7 +384,8 @@ function findLongestWord(sentence) {
  */
 function reverseWords(inputString) {
   const words = inputString.split(' ');
-  const reversedWords = words.map(function (word) {
+  const reversedWords = words.map(function reverseWord(word) {
+    // Имя функции добавлено
     return word.split('').reverse().join('');
   });
   return reversedWords.join(' ');
